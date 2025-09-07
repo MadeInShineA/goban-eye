@@ -2,39 +2,23 @@ package com.example.gobaneye
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.gobaneye.ui.theme.GobanEyeTheme
+import androidx.activity.compose.setContent // needs activity-compose dep
+// (Optional) If this import fails, just delete enableEdgeToEdge() call below:
+// import androidx.activity.enableEdgeToEdge
+
+import androidx.lifecycle.viewmodel.compose.viewModel // needs lifecycle-viewmodel-compose
+import com.example.gobaneye.ui.GobanScreen
+import com.example.gobaneye.vm.GobanViewModel
 
 class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    enableEdgeToEdge()
+    // If unresolved, comment out the next line (it's not required):
+    // enableEdgeToEdge()
+
     setContent {
-      GobanEyeTheme {
-        Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-          Greeting(name = "Android", modifier = Modifier.padding(innerPadding))
-        }
-      }
+      val vm: GobanViewModel = viewModel()
+      GobanScreen(vm)
     }
   }
 }
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-  Text(text = "Hello $name!", modifier = modifier)
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-  GobanEyeTheme { Greeting("Android") }
-}
-
