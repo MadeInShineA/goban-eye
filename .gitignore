@@ -1,0 +1,33 @@
+# Gradle
+.gradle/
+build/
+*/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Local configuration
+local.properties
+gradle.properties
+
+# IntelliJ / Android Studio
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Kotlin build cache
+.kotlin/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Log / database / generated files
+*.log
+*.db
+*.sqlite
+kls_database.db
+
+# Android
+.cxx/
+captures/
+.externalNativeBuild/
